@@ -202,8 +202,14 @@ function extractEmails(str) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleString(width, height) {
+  let str = '';
+  str = str.concat('┌', '─'.repeat(width - 2), '┐', '\n');
+  for (let i = 1; i < height - 1; i += 1) {
+    str = str.concat('│', ' '.repeat(width - 2), '│', '\n');
+  }
+  str = str.concat('└', '─'.repeat(width - 2), '┘', '\n');
+  return str;
 }
 
 
@@ -223,8 +229,18 @@ function getRectangleString(/* width, height */) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(/* str */) {
-  throw new Error('Not implemented');
+function encodeToRot13(str) {
+  let rez = '';
+  for (let i = 0; i < str.length; i += 1) {
+    if ((str[i].charCodeAt() > 96) && (str[i].charCodeAt() < 123)) {
+      rez += String.fromCharCode((((str[i].charCodeAt() - 97) + 13) % 26) + 97);
+    } else if ((str[i].charCodeAt() > 64) && (str[i].charCodeAt() < 91)) {
+      rez += String.fromCharCode((((str[i].charCodeAt() - 65) + 13) % 26) + 65);
+    } else {
+      rez += str[i];
+    }
+  }
+  return rez;
 }
 
 /**
@@ -269,8 +285,27 @@ function isString(value) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
-function getCardId(/* value */) {
-  throw new Error('Not implemented');
+function getCardId(value) {
+  const card = ['♣', '♦', '♥', '♠'];
+  let num;
+  switch (value[0]) {
+    case 'A':
+      num = 1;
+      break;
+    case 'J':
+      num = 11;
+      break;
+    case 'Q':
+      num = 12;
+      break;
+    case 'K':
+      num = 13;
+      break;
+    default:
+      num = value.slice(0, -1);
+      break;
+  }
+  return (Number(num) + 13 * card.indexOf(value.slice(-1))) - 1;
 }
 
 
