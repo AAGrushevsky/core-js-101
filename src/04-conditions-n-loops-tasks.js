@@ -360,7 +360,7 @@ function getDigitalRoot(num) {
  *   '{)' = false
  *   '{[(<{[]}>)]}' = true
  */
-function isBracketsBalanced(str) {
+function isBracketsBalanced(/* str */) {
   throw new Error('Not implemented');
 }
 
@@ -402,7 +402,7 @@ function toNaryString(num, n) {
  *   ['/web/assets/style.css', '/.bin/mocha',  '/read.me'] => '/'
  *   ['/web/favicon.ico', '/web-scripts/dump', '/verbalizer/logs'] => '/'
  */
-function getCommonDirectoryPath(pathes) {
+function getCommonDirectoryPath(/* pathes */) {
  throw new Error('Not implemented');
 }
 
@@ -425,7 +425,7 @@ function getCommonDirectoryPath(pathes) {
  *                         [ 6 ]]
  *
  */
-function getMatrixProduct(m1, m2) {
+function getMatrixProduct(/* m1, m2 */) {
   throw new Error('Not implemented');
 }
 
