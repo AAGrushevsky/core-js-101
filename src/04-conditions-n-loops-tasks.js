@@ -361,24 +361,7 @@ function getDigitalRoot(num) {
  *   '{[(<{[]}>)]}' = true
  */
 function isBracketsBalanced(str) {
-  const arr = [];
-  const brackets = {
-    ']': '[',
-    ')': '(',
-    '}': '{',
-    '>': '<',
-  };
-  for (let i = 0; i < str.length; i += 1) {
-    const top = arr[arr.length - 1];
-    if (brackets[str[i]] === top && arr.length >= 1) {
-      arr.pop();
-    } else if (Object.values(brackets).includes(str[i])) {
-      arr.push(str[i]);
-    } else {
-      return false;
-    }
-  }
-  return arr.length === 0;
+  throw new Error('Not implemented');
 }
 
 
@@ -420,19 +403,7 @@ function toNaryString(num, n) {
  *   ['/web/favicon.ico', '/web-scripts/dump', '/verbalizer/logs'] => '/'
  */
 function getCommonDirectoryPath(pathes) {
-  let result = '';
-  const elLength = Math.min(...pathes.map((el) => el.length));
-  for (let i = 0; i <= elLength - 1; i += 1) {
-    if (pathes.every((el) => el[i] === pathes[0][i])) {
-      result += pathes[0][i];
-    } else {
-      i = elLength;
-    }
-  }
-  if (result[result.length - 1] !== '/') {
-    return result.slice(0, result.lastIndexOf('/') + 1);
-  }
-  return result;
+ throw new Error('Not implemented');
 }
 
 
@@ -455,21 +426,7 @@ function getCommonDirectoryPath(pathes) {
  *
  */
 function getMatrixProduct(m1, m2) {
-  const result = [];
-  for (let i = 0; i < m1.length; i += 1) {
-    const sum = [];
-    let k = 0;
-    while (k < m1.length) {
-      const prod = [];
-      for (let j = 0; j < m1[i].length; j += 1) {
-        prod.push(m1[i][j] * m2[j][k]);
-      }
-      k += 1;
-      sum.push(prod.reduce((acc, el) => el + acc, 0));
-    }
-    result.push(sum);
-  }
-  return result;
+  throw new Error('Not implemented');
 }
 
 
